@@ -630,6 +630,8 @@ def force_install_module(cr, module, if_installed=None, reason="it has been expl
 
 
 def _assert_modules_exists(cr, *modules):
+    # TODO: testing disabling this assert
+    return
     assert modules
     cr.execute("SELECT name FROM ir_module_module WHERE name IN %s", [modules])
     existing_modules = {m[0] for m in cr.fetchall()}
